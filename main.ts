@@ -11,21 +11,15 @@ function readLightLevel () {
 }
 input.onButtonPressed(Button.B, function () {
     if (input.lightLevel() == 0) {
-        basic.showString("NULL")
-        basic.pause(500)
-        basic.clearScreen()
+        Pause500Clear()
         basic.showIcon(IconNames.Sad)
-        basic.clearScreen()
-        basic.pause(500)
-        readLightLevel()
+        Clear500Pause()
+        basic.showString("NULL")
     } else if (input.lightLevel() <= 75) {
-        basic.showString("Hello?")
-        basic.pause(500)
-        basic.clearScreen()
+        Pause500Clear()
         basic.showIcon(IconNames.Asleep)
-        basic.clearScreen()
-        basic.pause(500)
-        readLightLevel()
+        Clear500Pause()
+        basic.showString("Hello?")
     } else if (input.lightLevel() > 75 && input.lightLevel() <= 110) {
         basic.showString("Dim")
         basic.pause(500)
@@ -55,6 +49,7 @@ input.onButtonPressed(Button.B, function () {
 function Clear500Pause () {
     basic.clearScreen()
     basic.pause(500)
+    readLightLevel()
 }
 basic.forever(function () {
     Reading = input.lightLevel()
